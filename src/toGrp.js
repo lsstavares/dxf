@@ -36,10 +36,13 @@ const polyline = (entity) => {
     acc += point[0] + ',' + point[1]
     return acc
   }, '')
+  
+  const z = vertices[0].z;
+
   // Empirically it appears that flipping horzontally does not apply to polyline
   return transformBoundingBoxAndElement(
     bbox,
-    `<path data-dxf-layer="${entity.layer}" data-dxf-depth="${entity.z}" d="${d}" />`,
+    `<path data-dxf-layer="${entity.layer}" data-dxf-depth="${z}" d="${d}" />`,
     entity.transforms,
   )
 }
