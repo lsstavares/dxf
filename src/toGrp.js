@@ -39,7 +39,7 @@ const polyline = (entity) => {
   // Empirically it appears that flipping horzontally does not apply to polyline
   return transformBoundingBoxAndElement(
     bbox,
-    `<path data-dxf-layer="${entity.layer}" d="${d}" />`,
+    `<path data-dxf-layer="${entity.layer}" data-dxf-depth="${entity.z}" d="${d}" />`,
     entity.transforms,
   )
 }
@@ -57,7 +57,7 @@ const circle = (entity) => {
       x: entity.x - entity.r,
       y: entity.y - entity.r,
     })
-  const element0 = `<circle data-dxf-layer="${entity.layer}" cx="${entity.x}" cy="${entity.y}" r="${entity.r}" />`
+  const element0 = `<circle data-dxf-layer="${entity.layer}" data-dxf-depth="${entity.z}"  cx="${entity.x}" cy="${entity.y}" r="${entity.r}" />`
   const { bbox, element } = addFlipXIfApplicable(entity, {
     bbox: bbox0,
     element: element0,
