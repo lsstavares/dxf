@@ -37,7 +37,7 @@ const polyline = (entity) => {
     return acc
   }, '')
   
-  const z = vertices[0].z;
+  var z = entity.vertices[0].z;
 
   // Empirically it appears that flipping horzontally does not apply to polyline
   return transformBoundingBoxAndElement(
